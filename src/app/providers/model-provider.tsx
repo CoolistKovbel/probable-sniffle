@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LoginModel from "../model/loginModel";
+import RegisterModel from "../model/RegisterModel";
+import LoginModel from "../model/LoginModel";
 
 export const ModalProvider = () => {
   const [isMounted, setIsmounted] = useState(false);
@@ -17,6 +18,7 @@ export const ModalProvider = () => {
   return (
     <>
       <LoginModel />
+      <RegisterModel />
     </>
   );
 };

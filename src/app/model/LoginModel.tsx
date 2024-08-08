@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const LoginModel = () => {
-
   const { isOpen, onClose, type, signature } = useModal();
   const [currentUser, setCurrerntUser] = useState<any>("");
   const fm = signature;
@@ -15,11 +14,10 @@ const LoginModel = () => {
   const router = useRouter();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
     e.preventDefault();
 
     try {
-      console.log("google log")
+      console.log("google log");
 
       onClose();
     } catch (error) {
@@ -29,7 +27,7 @@ const LoginModel = () => {
 
   useEffect(() => {
     const gh = async () => {
-      console.log("usering effecing")
+      console.log("usering effecing");
     };
 
     gh();
@@ -53,9 +51,20 @@ const LoginModel = () => {
         <form onSubmit={onSubmit}>
           <h2 className="text-2xl font-bold mb-4">Sign in</h2>
 
-            {/* install ethers. */}
+          <div className="flex items-start justify-between flex-col bg-[#444] p-4 text-white drop-shadow-lg rounded">
+            <label htmlFor="metaAddress" className="flex items-center justify-between w-full">
+              <span className="text-xl font-bold">Address: </span>
+              <input
+                type="text"
+                placeholder="enter address"
+                id="metaAddress"
+                name="metaAddress"
+                className="p-2 bg-[#111] rounded drop-shadow-lg"
+              />
+            </label>
 
-          
+            <button className="mt-4 uppercase p-3 font-bold text-sm rounded hover:drop-shadow-lg bg-[#798] hover:bg-[#458]">submit</button>
+          </div>
         </form>
       </dialog>
     </div>
