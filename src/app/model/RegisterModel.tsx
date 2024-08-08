@@ -3,6 +3,7 @@
 import { useModal } from "@/app/hooks/use-modal-store";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createUser } from "../database/UserRoute";
 
 const RegisterModel = () => {
   const { isOpen, onClose, type, signature } = useModal();
@@ -16,8 +17,15 @@ const RegisterModel = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const metaAddy = e.target[0].value;
+    const metaUser = e.target[1].value;
+
     try {
-      console.log("google log");
+      console.log("powerrrr", metaAddy, metaUser);
+
+      const gg = await createUser(metaUser, metaAddy, 14);
+
+      console.log(gg);
 
       onClose();
     } catch (error) {
@@ -53,7 +61,7 @@ const RegisterModel = () => {
           <div className="flex items-start justify-between gap-5 flex-col bg-[#444] p-4 text-white drop-shadow-lg rounded">
             {/* install ethers. */}
             <label
-              htmlFor=""
+              htmlFor="metaAddress"
               className="flex items-center justify-between w-full"
             >
               <span>Address: </span>
@@ -61,6 +69,22 @@ const RegisterModel = () => {
                 type="text"
                 placeholder="enter address"
                 className="p-2 bg-[#111] rounded drop-shadow-lg"
+                id="metaAddress"
+                name="metaAddress"
+              />
+            </label>
+
+            <label
+              htmlFor="username"
+              className="flex items-center justify-between w-full"
+            >
+              <span>Username: </span>
+              <input
+                type="text"
+                placeholder="enter username"
+                className="p-2 bg-[#111] rounded drop-shadow-lg"
+                id="username"
+                name="username"
               />
             </label>
 
