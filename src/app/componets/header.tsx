@@ -2,6 +2,7 @@
 
 import { createAdminDash } from "../database/AdminRoute";
 import { useModal } from "../hooks/use-modal-store";
+import HeaderNav from "./headerNav";
 
 const HeaderMain = () => {
 
@@ -34,18 +35,15 @@ const HeaderMain = () => {
 
   return (
     <>
-      <header className="flex items-center p-4 bg-[#444] drop-shadow-lg rounded justify-between w-full ">
+      <header className="flex items-center p-4 bg-[#444] drop-shadow-lg rounded justify-between w-full">
         <h1 className="text-2xl font-bold">SimpleGamish</h1>
-        <nav className="w-[30%] flex items-center justify-between drop-shadow-lg bg-[#444] p-2">
-          <button onClick={loginFunc} className="hover:drop-shadow-lg">
-            Login
-          </button>
-          <button onClick={registerFunc} className="hover:drop-shadow-lg">
-            Register
-          </button>
-        </nav>
+
+        <HeaderNav />
+        
+
       </header>
-      <div>
+
+      <div className="w-full flex justify-start mt-2">
         <button onClick={createBlock} className="bg-[#555] p-2 rounded drop-shadow-lg">createDash</button>
       </div>
     </>

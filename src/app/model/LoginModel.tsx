@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 const LoginModel = () => {
   const { isOpen, onClose, type, signature } = useModal();
-  const [currentUser, setCurrerntUser] = useState<any>("");
   const fm = signature;
 
   const isModalOpen = isOpen && type === "AuthUser";
@@ -65,6 +64,7 @@ const LoginModel = () => {
 
             <button className="mt-4 uppercase p-3 font-bold text-sm rounded hover:drop-shadow-lg bg-[#798] hover:bg-[#458]">submit</button>
           </div>
+          
         </form>
       </dialog>
     </div>
